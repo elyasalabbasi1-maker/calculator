@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+  <style>
+    /* All colors live here. Change a color once and it updates everywhere. */
+    :root {
+      --bg: #1e2430;
+      --card: #272f3d;
+      --screen: #1b212c;
+      --text: #e8ecf2;
+      --btn: #343e50;
+      --btn-hover: #3f4b5f;
+      --op: #3f6f7a;
+      --op-hover: #4a808c;
+      --equals: #5fa8a0;
+      --equals-hover: #70b9b1;
+      --clear: #7d5560;
+      --clear-hover: #8d6571;
+    }
+
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: var(--bg);
+      display: flex;
+      justify-content: center;
+      margin-top: 60px;
+    }
+
+    .calculator {
+      background: var(--card);
+      padding: 20px;
+      border-radius: 20px;
+      width: 280px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    #display {
+      width: 100%;
+      box-sizing: border-box;
+      height: 64px;
+      padding: 0 14px;
+      font-size: 30px;
+      text-align: right;
+      color: var(--text);
+      background: var(--screen);
+      border: none;
+      border-radius: 12px;
+      margin-bottom: 16px;
+    }
+
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    button {
+      height: 54px;
+      font-size: 20px;
+      color: var(--text);
+      background: var(--btn);
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+
+    button:hover { background: var(--btn-hover); }
+
+    .op { background: var(--op); }
+    .op:hover { background: var(--op-hover); }
+
+    .equals { background: var(--equals); }
+    .equals:hover { background: var(--equals-hover); }
+
+    .clear {
+      grid-column: span 4;
+      background: var(--clear);
+    }
+    .clear:hover { background: var(--clear-hover); }
+  </style>
+</head>
+<body>
+
+  <div class="calculator">
+    <input id="display" readonly>
+
+    <div class="buttons">
+      <button onclick="press('7')">7</button>
+      <button onclick="press('8')">8</button>
+      <button onclick="press('9')">9</button>
+      <button class="op" onclick="setOperator('/')">÷</button>
+
+      <button onclick="press('4')">4</button>
+      <button onclick="press('5')">5</button>
+      <button onclick="press('6')">6</button>
+      <button class="op" onclick="setOperator('*')">×</button>
+
+      <button onclick="press('1')">1</button>
+      <button onclick="press('2')">2</button>
+      <button onclick="press('3')">3</button>
+    <button class="op" onclick="setOperator('-')">−</button>
+
+      <button onclick="press('0')">0</button>
+      <button onclick="press('.')">.</button>
+      <button class="equals" onclick="calculate()">=</button>
+      <button class="op" onclick="setOperator('+')">+</button>
+
+      <button class="clear" onclick="clearDisplay()">C</button>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
